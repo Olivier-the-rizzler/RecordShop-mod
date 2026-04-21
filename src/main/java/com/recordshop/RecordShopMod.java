@@ -4,10 +4,10 @@ import com.recordshop.init.ModBlocks;
 import com.recordshop.init.ModBlockEntities;
 import com.recordshop.init.ModMenuTypes;
 import com.recordshop.client.RecordCrateScreen;
-import net.minecraft.client.gui.screens.MenuScreens;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
+import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 
 @Mod(RecordShopMod.MOD_ID)
 public class RecordShopMod {
@@ -20,12 +20,10 @@ public class RecordShopMod {
         ModBlockEntities.BLOCK_ENTITIES.register(modEventBus);
         ModMenuTypes.MENUS.register(modEventBus);
 
-        modEventBus.addListener(this::clientSetup);
+        modEventBus.addListener(this::registerScreens);
     }
 
-    private void clientSetup(FMLClientSetupEvent event) {
-        event.enqueueWork(() -> {
-            MenuScreens.register(ModMenuTypes.RECORD_CRATE_MENU.get(), RecordCrateScreen::new);
-        });
+    private void registerScreens(RegisterMenuScreensEvent event) {
+        event.register(ModMenuTypes.RECORD_CRATE_MENU.get(), RecordCrateScreen::new);
     }
 }

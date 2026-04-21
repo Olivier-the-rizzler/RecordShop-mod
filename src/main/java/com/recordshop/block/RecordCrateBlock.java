@@ -1,10 +1,9 @@
 package com.recordshop.block;
 
+import com.mojang.serialization.MapCodec;
 import com.recordshop.blockentity.RecordCrateBlockEntity;
-import com.recordshop.init.ModBlockEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
@@ -20,12 +19,18 @@ import org.jetbrains.annotations.Nullable;
 
 public class RecordCrateBlock extends BaseEntityBlock {
 
+    public static final MapCodec<RecordCrateBlock> CODEC = simpleCodec(RecordCrateBlock::new);
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
 
     public RecordCrateBlock(Properties properties) {
         super(properties);
         this.registerDefaultState(this.stateDefinition.any()
                 .setValue(FACING, Direction.NORTH));
+    }
+
+    @Override
+    public MapCodec<RecordCrateBlock> codec() {
+        return CODEC;
     }
 
     @Override

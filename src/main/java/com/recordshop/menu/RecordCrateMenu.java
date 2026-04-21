@@ -8,6 +8,7 @@ import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.tags.ItemTags;
+import net.minecraft.world.item.RecordItem;
 import net.neoforged.neoforge.items.IItemHandler;
 import net.neoforged.neoforge.items.ItemStackHandler;
 import net.neoforged.neoforge.items.SlotItemHandler;
@@ -30,7 +31,7 @@ public class RecordCrateMenu extends AbstractContainerMenu {
                         44 + col * 18, 20 + row * 18) {
                     @Override
                     public boolean mayPlace(@NotNull ItemStack stack) {
-                        return stack.is(ItemTags.MUSIC_DISCS);
+                        return stack.getItem() instanceof RecordItem;
                     }
                 });
             }
@@ -76,7 +77,7 @@ public class RecordCrateMenu extends AbstractContainerMenu {
                 }
             }
             // If moving from player inventory and it's a record, move to crate
-            else if (slotStack.is(ItemTags.MUSIC_DISCS)) {
+            else if (slotStack.getItem() instanceof RecordItem) {
                 if (!this.moveItemStackTo(slotStack, 0, 9, false)) {
                     return ItemStack.EMPTY;
                 }
