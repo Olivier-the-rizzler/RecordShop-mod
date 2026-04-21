@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "top":    "recordshop:block/record_crate_top",
+    "front":  "recordshop:block/record_crate_front",
+    "side":   "recordshop:block/record_crate_side"
+  }
+}

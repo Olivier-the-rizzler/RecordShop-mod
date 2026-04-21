@@ -1,0 +1,25 @@
+modLoader = "javafml"
+loaderVersion = "[4,)"
+license = "MIT"
+
+[[mods]]
+modId = "recordshop"
+version = "${mod_version}"
+displayName = "Record Shop"
+description = '''
+Adds a dark oak record crate for storing music discs — perfect for building your dream record shop.
+'''
+
+[[dependencies.recordshop]]
+    modId = "neoforge"
+    type = "required"
+    versionRange = "[21.1,)"
+    ordering = "NONE"
+    side = "BOTH"
+
+[[dependencies.recordshop]]
+    modId = "minecraft"
+    type = "required"
+    versionRange = "[1.21.1,1.22)"
+    ordering = "NONE"
+    side = "BOTH"

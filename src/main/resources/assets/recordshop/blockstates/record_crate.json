@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "recordshop:block/record_crate" },
+    "facing=south": { "model": "recordshop:block/record_crate", "y": 180 },
+    "facing=east":  { "model": "recordshop:block/record_crate", "y": 90 },
+    "facing=west":  { "model": "recordshop:block/record_crate", "y": 270 }
+  }
+}
