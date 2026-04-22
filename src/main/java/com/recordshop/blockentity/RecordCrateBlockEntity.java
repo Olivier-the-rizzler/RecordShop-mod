@@ -14,7 +14,7 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.MusicDiscItem;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
@@ -31,7 +31,7 @@ public class RecordCrateBlockEntity extends BlockEntity implements MenuProvider 
         @Override
         public boolean isItemValid(int slot, @NotNull ItemStack stack) {
             // Only accept music discs
-            return stack.getItem() instanceof MusicDiscItem;
+            return stack.has(DataComponents.JUKEBOX_PLAYABLE);
         }
 
         @Override
